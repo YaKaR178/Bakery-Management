@@ -179,7 +179,7 @@ async function renderCartPage() {
         // If a discount exists, use it as the base total price
         const finalPrice = !isNaN(discountedPrice) ? totalPrice - discountedPrice : totalPrice;
 
-        localStorage.setItem('finalPrice', finalPrice); //NEED TO CHECK THIS LINE BECAUSE ITS MAKE PROBLEMS
+        localStorage.setItem('finalPrice', finalPrice);
 
         // Display the total price
         const totalPriceElement = document.createElement('div');
