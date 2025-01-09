@@ -17,10 +17,10 @@
  * - The returned connection should be closed after usage to free resources.
  */
 function connectToDatabase() {
-    $servername = "192.116.98.5";
-    $dbname = "isnivzu_BakeryDB";
-    $dbusername = "isnivzu_user1";
-    $dbpassword = "eliyakar178";
+    $servername = "SERVER_NAME";
+    $dbname = "DB_NAME";
+    $dbusername = "DB_USERNAME";
+    $dbpassword = "DB_PASSWORD";
 
     // Create a connection
     $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
