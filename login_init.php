@@ -33,12 +33,17 @@
         
         // Check connection
         if ($conn->connect_error) {
-            die(json_encode(["status" => "error", "message" => "Database connection failed."]));
+            error_log("Database connection error: " . $conn->connect_error); // Logs the error
+            $_SESSION['error_message'] = "Something went wrong, please try again later.";
+            header("Location: login.php");
+            exit();
         }
     
         // Query to check user and password
-        $sql = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
-        $result = $conn->query($sql);
+        $stmt = $conn->prepare("SELECT * FROM users WHERE username = ? AND password = ?");
+        $stmt->bind_param("ss", $username, $password);
+        $stmt->execute();
+        $result = $stmt->get_result();
     
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
@@ -60,7 +65,9 @@
             }
             
         } else {
-            echo json_encode(["status" => "error", "message" => "Incorrect username or password."]);
+            $_SESSION['error_message'] = "Incorrect username or password.";
+            header("Location: login.php");
+            exit();
         }
     
         // Close connection

@@ -1,5 +1,7 @@
-<?php
+<!--Header-->
+<?php include 'Style/header.php';?>
 
+<?php
 /**
  * File Name: admin_orders.php
  * Author: Eliasaf Yakar, Niv Zukerman and Nissan Yaar
@@ -89,10 +91,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 $totalPages = ceil($totalOrders / $limit);
 ?>
 
-<!--Header-->
-<?php include "Style/header.php"; ?>
 
-<section id="edit-permissions" class="edit-permissions">
+<section id="edit-orders" class="edit-orders">
 
     <h1 style="color: rgb(199, 74, 74);">Order Management</h1>
 

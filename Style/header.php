@@ -15,7 +15,7 @@ $isAdmin = $_SESSION['is_admin'] ?? false;
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="Style/style.css">
-
+    
 </head>
 
 <body>
@@ -31,7 +31,7 @@ $isAdmin = $_SESSION['is_admin'] ?? false;
                 <li><a href="about.php">About</a></li>
                 <li><a href="contact.php">Contact</a></li>
                 <li>
-                    <a  href="<?php echo $isLoggedIn ? ($isAdmin ? 'admin.php' : 'profile.php') : 'login.php'; ?>">
+                    <a  href="<?php echo $isLoggedIn ? ($isAdmin ? 'admin.php' : 'order.php') : 'login.php'; ?>">
                         <i class='fas fa-user-alt'></i>
                     </a>
                 </li>
@@ -56,3 +56,9 @@ $isAdmin = $_SESSION['is_admin'] ?? false;
         
 
     </section>
+
+    <script src="Style/navbar.js"></script>
+    
+</body>
+
+

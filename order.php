@@ -1,3 +1,6 @@
+<!--Header-->
+<?php include 'Style/header.php';?>
+
 <?php
 /**
  * File Name: order.php
@@ -22,15 +25,11 @@
  */
 ?>
 
-<!--Header-->
-<?php include 'Style/header.php';?>
-
-
 <!--Hero-->
 <section id="page-header">
     <h1>Happy Holidays!</h1>
-    <h4 id="save">Save 50% off holdiay pastries and sweets</h4>
-    <p>Use the code <b id="coupon-code">HOL50</b> at checkout</p>
+    <h4 id="save">Save 10% off holdiay pastries and sweets</h4>
+    <p>Use the code <b id="coupon-code">HOL10</b> at checkout</p>
     <i class="fas fa-copy copy-icon" onclick="copyCouponCode()"></i>
     <div id="copy-notification" style="display:none;">Copied!</div>
 </section>

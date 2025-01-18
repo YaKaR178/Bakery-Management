@@ -1,3 +1,6 @@
+<!--Header-->
+<?php include_once 'Style/header.php'; ?>
+
 <?php
 /**
  * File Name: admin_coupons.php
@@ -130,120 +133,117 @@ $conn->close();
 //end of server side
 ?>
 
-<!--Header-->
-<?php include "Style/header.php";?>
+<section id="edit-coupons" class="edit-coupons">
 
-    <section id="edit-coupons" class="edit-coupons">
-
-        <div class="wrapper" id="sign-up">
-            <form action="admin_coupons.php" method="POST">
-                <h1>Edit Coupons</h1>
-
-
-                <div class="edit-coupons-section">
-
-                    <!--adding coupons-->
-                    <h3>Add Coupon</h3>
-
-                    <div class="input-box">
-                        <input type="text" name="coupon_name" placeholder="Coupon Name" required>
-                    </div>
-
-                    <div class="input-box">
-                        <input placeholder="Expiration Date" name="end_date" class="textbox-n" type="text" onfocus="(this.type='date')"
-                               onblur="(this.type='text')" required>
-                    </div>
-
-                    <div class="input-box">
-                        <input type="number" name="discount" step="1" placeholder="Discount (%)" required>
-                    </div>
-
-                    <div class="input-box">
-                        <input type="text" name="coupon_code" placeholder="Coupon Code" required>
-                    </div>
-
-
-                    <div class="input-box">
-                        <button type="submit" name="add_coupon" class="btn">Add</button>
-                    </div>
-
-                </div>
-
-            </form>
+    <div class="wrapper" id="sign-up">
+        <form action="admin_coupons.php" method="POST">
+            <h1>Edit Coupons</h1>
 
 
             <div class="edit-coupons-section">
-                
-                <!--Delete Coupons-->
-                <h3>Delete Coupon</h3>
 
-                <form action="admin_coupons.php" method="POST">
-                    <select name="coupon_code" id="coupon_code" class="coupon-code-dropdown" required>
-                        <option value="" disabled selected>-- Select a Coupon --</option>
-                        <?php foreach ($coupons as $coupon): ?>
-                        <option value="<?php echo htmlspecialchars($coupon['coupon_code']); ?>">
-                            <?php echo htmlspecialchars($coupon['coupon_name']); ?>
-                        </option>
-                        <?php endforeach; ?>
-                    </select>
-                    <button type="submit" name="delete_coupon" class="btn">Delete</button>
-                </form>
+                <!--adding coupons-->
+                <h3>Add Coupon</h3>
+
+                <div class="input-box">
+                    <input type="text" name="coupon_name" placeholder="Coupon Name" required>
+                </div>
+
+                <div class="input-box">
+                    <input placeholder="Expiration Date" name="end_date" class="textbox-n" type="text" onfocus="(this.type='date')"
+                            onblur="(this.type='text')" required>
+                </div>
+
+                <div class="input-box">
+                    <input type="number" name="discount" step="1" placeholder="Discount (%)" required>
+                </div>
+
+                <div class="input-box">
+                    <input type="text" name="coupon_code" placeholder="Coupon Code" required>
+                </div>
+
+
+                <div class="input-box">
+                    <button type="submit" name="add_coupon" class="btn">Add</button>
+                </div>
 
             </div>
 
+        </form>
 
 
-            <div class="edit-coupons-section">
-    <!--Update Exist Coupons-->
-    <h3>Update Coupon</h3>
-    
-    <form action="admin_coupons.php" method="POST">
-        <!-- Coupon selection -->
-        <div class="input-box">
-            <select name="coupon_code" id="coupon_code" class="coupon-code-dropdown" required>
-                <option value="" disabled selected>-- Select a Coupon --</option>
-                <?php foreach ($coupons as $coupon): ?>
+        <div class="edit-coupons-section">
+            
+            <!--Delete Coupons-->
+            <h3>Delete Coupon</h3>
+
+            <form action="admin_coupons.php" method="POST">
+                <select name="coupon_code" id="coupon_code" class="coupon-code-dropdown" required>
+                    <option value="" disabled selected>-- Select a Coupon --</option>
+                    <?php foreach ($coupons as $coupon): ?>
                     <option value="<?php echo htmlspecialchars($coupon['coupon_code']); ?>">
                         <?php echo htmlspecialchars($coupon['coupon_name']); ?>
                     </option>
-                <?php endforeach; ?>
-            </select>
+                    <?php endforeach; ?>
+                </select>
+                <button type="submit" name="delete_coupon" class="btn">Delete</button>
+            </form>
+
         </div>
 
-        <!-- Edit Expiration Date -->
-        <div class="input-box">
-            <label for="edit-date">Edit Date Ex</label>
-            <input placeholder="New Expiration Date" name="edit_date" class="textbox-n" type="text"
-                   onfocus="(this.type='date')" onblur="(this.type='text')" required>
-        </div>
 
-        <!-- Edit Discount -->
-        <div class="input-box">
-            <label for="edit-discount">Edit Discount</label>
-            <input type="number" name="edit_discount" step="1" placeholder="New Discount (%)" required>
-        </div>
 
-        <!-- Submit Button -->
-        <div class="input-box">
-            <button type="submit" name="edit_coupon" class="btn">Edit</button>
-        </div>
-    </form>
+        <div class="edit-coupons-section">
+<!--Update Exist Coupons-->
+<h3>Update Coupon</h3>
+
+<form action="admin_coupons.php" method="POST">
+    <!-- Coupon selection -->
+    <div class="input-box">
+        <select name="coupon_code" id="coupon_code" class="coupon-code-dropdown" required>
+            <option value="" disabled selected>-- Select a Coupon --</option>
+            <?php foreach ($coupons as $coupon): ?>
+                <option value="<?php echo htmlspecialchars($coupon['coupon_code']); ?>">
+                    <?php echo htmlspecialchars($coupon['coupon_name']); ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+
+    <!-- Edit Expiration Date -->
+    <div class="input-box">
+        <label for="edit-date">Edit Date Ex</label>
+        <input placeholder="New Expiration Date" name="edit_date" class="textbox-n" type="text"
+                onfocus="(this.type='date')" onblur="(this.type='text')" required>
+    </div>
+
+    <!-- Edit Discount -->
+    <div class="input-box">
+        <label for="edit-discount">Edit Discount</label>
+        <input type="number" name="edit_discount" step="1" placeholder="New Discount (%)" required>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="input-box">
+        <button type="submit" name="edit_coupon" class="btn">Edit</button>
+    </div>
+</form>
 </div>
 
-        </div>
+    </div>
 
-    </section>
+</section>
 
-    <div style="height: 50px;"></div>
+<div style="height: 50px;"></div>
 
-    
+
 <?php include "Style/footer.php";?>
 
-    <?php
-    if (isset($message)) {
-        echo "<script>alert('$message');</script>";
-    }
-    ?>
+<?php
+if (isset($message)) {
+    echo "<script>alert('$message');</script>";
+}
+?>
 
 </body>
 

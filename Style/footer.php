@@ -19,9 +19,9 @@
         <div class="col">
             <!--<img class="logo" src="img/logo.png" alt="logo" height="100px" width="100px">-->
             <h4>Contact</h4>
-            <p><strong>Address:</strong> 13 Arlozerov Rd., Yehud</p>
-            <p><strong>Email:</strong> bfth_bakery@gmail.com</p>
-            <p><strong>Phone:</strong> 054-836-3238</p>
+            <p><strong>Address:</strong> 13 Arlozerov Rd., Yehud-Monosson</p>
+            <p><strong>Email:</strong> bakery.fth@gmail.com</p>
+            <p><strong>Phone:</strong> 052-538-1648</p>
             <p><strong>Hours:</strong> Su-Th: 09:00-21:00</p>
             <div class="follow">
                 <h4>Follow Us</h4>

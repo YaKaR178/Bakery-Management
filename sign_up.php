@@ -25,8 +25,6 @@
 session_start();
 require_once 'db_con.php';  
 
-
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve and process form data
     $email = $_POST['username'];
@@ -47,8 +45,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     $conn = connectToDatabase();
 
-    // Hash the password for security
-    //$hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    $checkEmailStmt = $conn->prepare("SELECT COUNT(*) FROM users WHERE username = ?");
+    $checkEmailStmt->bind_param("s", $email);
+    $checkEmailStmt->execute();
+    $checkEmailStmt->bind_result($emailCount);
+    $checkEmailStmt->fetch();
+    $checkEmailStmt->close();
+
+    if ($emailCount > 0) {
+        // Email already exists, show an error message
+        echo "<script>
+                alert('The email you entered is already registered. Please use a different email.');
+                window.location.href = 'sign_up.php';
+              </script>";
+        exit();
+    }
 
     // Prepare and bind to prevent SQL injection
     $stmt = $conn->prepare("INSERT INTO users (username, password, first_name, last_name, address, city, phone, birth_date) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
@@ -81,9 +92,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-<?php include "Style/header.php";?>
+<!--Header-->
+<?php include 'Style/header.php';?>
 
-    <!--Login-->
+    <!--Sign Up-->
     <section id="sign-up-screen" class="sign-up">
 
         <div class="wrapper" id="sign-up">
@@ -94,11 +106,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <h3>Login Details</h3>
 
                     <div class="input-box">
-                        <input type="email" name="username" placeholder="Email" required>
+                        <input type="email" name="username" placeholder="Email *" required>
                     </div>
 
                     <div class="input-box">
-                        <input type="password" name="password" placeholder="Password" required>
+                        <input type="password" name="password" placeholder="Password *" required>
                     </div>
 
                 </div>
@@ -108,30 +120,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <h3>Personal Details</h3>
 
                     <div class="input-box">
-                        <input type="text" placeholder="First Name" name="first_name" required>
+                        <input type="text" placeholder="First Name *" name="first_name" required>
                     </div>
 
                     <div class="input-box">
-                        <input type="text" placeholder="Last Name" name="last_name" required>
+                        <input type="text" placeholder="Last Name *" name="last_name" required>
                     </div>
 
                     <div class="input-box">
-                        <input type="text" placeholder="Address" name="address" required>
+                        <input type="text" placeholder="Address *" name="address" required>
                     </div>
 
                     <div class="input-box">
-                        <input type="text" placeholder="City" name="city" required>
+                        <input type="text" placeholder="City *" name="city" required>
                     </div>
 
                     <div class="input-box" id="phone-input">
                             <select id="phone-prefix" class="phone-prefix" name="phone_prefix" required>
-                                <option value="" disabled selected>Prefix</option>
+                                <option value="" disabled selected>Prefix *</option>
                                 <option value="052">052</option>
                                 <option value="053">053</option>
                                 <option value="054">054</option>
                                 <option value="058">058</option>
                             </select>
-                            <input type="tel" name="phone" placeholder="Phone" maxlength="7" pattern="[0-9]{7}" required>
+                            <input type="tel" name="phone" placeholder="Phone *" maxlength="7" pattern="[0-9]{7}" required>
 
                     </div>
 
@@ -156,7 +168,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     </section>
-
  
    <?php include "Style/footer.php";?>
     

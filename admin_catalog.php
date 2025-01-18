@@ -1,5 +1,7 @@
-<?php
+<!--Header-->
+<?php include_once 'Style/header.php'; ?>
 
+<?php
 /**
  * File Name: admin_catalog.php
  * Author: Eliasaf Yakar, Niv Zukerman and Nissan Yaar
@@ -200,9 +202,6 @@ $conn->close();
 //server side end.
 ?> 
 
-<!--Header-->
-<?php include "Style/header.php"; ?>
-
 <section id="edit-catalog" class="edit-catalog">
     <div class="wrapper" id="sign-up">
 
@@ -218,14 +217,17 @@ $conn->close();
                 <div class="input-box">
                     <input placeholder="Price (&#8362;)" name="price" class="textbox-n" type="number" required>
                 </div>
-                <div class="input-box">
-                    <input type="file" name="image" required>
+                <div>
+                    <label style="margin-left: 100px;">Add Image</label>
+                    <input style="margin-left: 100px;" type="file" name="image" required>
                 </div>
                 <div class="input-box">
-                    <label><input type="checkbox" name="in_stock" value="1" />In Stock</label>
+                    <label>In Stock?</label>
+                    <input type="checkbox" name="in_stock" value="1" id="add_image">
                 </div>
                 <div class="input-box">
-                    <label><input type="checkbox" name="in_promotion" value="1" />In Promotion</label>
+                    <label>Promote</label>
+                    <input type="checkbox" name="in_promotion" value="1">
                 </div>
                 <div class="input-box">
                     <button type="submit" name="add_item" class="btn">Add</button>
@@ -279,17 +281,19 @@ $conn->close();
                     <input type="number" name="edit_price" id="edit-price" placeholder="New Price (&#8362;)">
                 </div>
 
-                <div class="input-box">
-                    <label for="edit-image">Edit Image</label>
-                    <input type="file" name="edit_image" id="edit-image">
+                <div>
+                    <label for="edit-image" style="margin-left: 100px;">Edit Image</label>
+                    <input type="file" id="edit-image" name="edit_image" style="margin-left: 100px;">
                 </div>
 
                 <div class="input-box">
-                    <label><input type="checkbox" name="edit_stock" id="edit-stock"> In Stock</label>
+                    <label for="edit-stock">In Stock?</label>
+                    <input type="checkbox" name="edit_stock" id="edit-stock">
                 </div>
 
                 <div class="input-box">
-                    <label><input type="checkbox" name="edit_promotion" id="edit-promotion"> In Promotion</label>
+                    <label for="edit-promotion">Promote</label>
+                    <input type="checkbox" name="edit_promotion" id="edit-promotion">
                 </div>
 
                 <div class="input-box">

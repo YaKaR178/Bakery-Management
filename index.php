@@ -1,3 +1,5 @@
+<!--Header-->
+<?php include 'Style/header.php';?>
 
 <?php
 /**
@@ -18,10 +20,6 @@
  *   - Includes a catalog section that dynamically loads the product list from an external PHP file. */
 ?>
 
-<?php
-include 'Style/header.php'; 
-?>
-
 <!--Hero-->
 <section id="hero">
     <h4>Your Holiday Table - Sorted</h4>
@@ -29,6 +27,10 @@ include 'Style/header.php';
     <h1>From the Heart</h1>
     <p>Save more with our promo offers</p>
     <a href="order.php">Order Now</a>
+</section>
+
+<section id="product1" class="section-p1">
+    <h2>Featured Items</h2>
 </section>
 
 <!--Feature-->

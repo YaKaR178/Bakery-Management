@@ -56,7 +56,10 @@ p {
 }
 
 
-body {
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
     width: 100%;
 }
 
@@ -319,7 +322,7 @@ body {
 /* About */
 #page-header-about {
     background-image: url("../img/hero_background.png");
-    height: 100vh;
+    height: 120vh;
     width: 100%;
     background-size: cover;
     background-position: top 25% right 0%;
@@ -894,7 +897,7 @@ footer .copyright {
 #login-screen {
     background-image: url("../img/hero_background.png");
     width: 100%;
-    height: 60vh;
+    height: 80vh;
     background-size: cover;
     display: flex;
     justify-content: center;
@@ -1068,7 +1071,7 @@ footer .copyright {
 #edit-catalog {
     background-image: url("../img/hero_background.png");
     width: 100%;
-    height: 240vh;
+    height: 300vh;
     background-size: cover;
     display: flex;
     text-align: center;
@@ -1214,7 +1217,7 @@ footer .copyright {
 #edit-catalog {
     background-image: url("../img/hero_background.png");
     width: 100%;
-    height: 250vh;
+    height: 280vh;
     background-size: cover;
     display: flex;
     text-align: center;
@@ -1278,154 +1281,380 @@ footer .copyright {
     width: 225px; /* Fixed width for the prefix dropdown */
     margin-right: 10px; /* Add spacing between the prefix and input */
 
+}
+
+/*order Management*/
+#edit-orders {
+    background-image: url("../img/hero_background.png");
+    width: 100%;
+    height: 1350px;
+    background-size: cover;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    padding: 14px;
+}
 
 
-
-
-
-
-    /* Media Query - Medium Screen*/
-    @media (max-width: 799px) {
-        #navbar {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: flex-start;
-            position: fixed;
-            top: 0;
-            right: -3000px;
-            height: 100vh;
-            width: 300px;
-            background-color: #e7e7e7;
-            box-shadow: 0 40px 60px rgba(0, 0, 0, 0.01);
-            padding: 80px 0 0 10px;
-            transition: 0.3s;
-        }
-
-            #navbar.active {
-                right: 0px;
-            }
-
-            #navbar li {
-                margin-bottom: 25px;
-            }
-
-        #mobile {
-            display: flex;
-            align-items: center;
-        }
-
-
-            #mobile i {
-                font-size: 24px;
-                padding-left: 20px;
-            }
-
-        #close {
-            display: initial;
-            position: absolute;
-            top: 30px;
-            left: 30px;
-            font-size: 24px;
-        }
-
-        #lg-bag {
-            display: none;
-        }
-
-        .section-p1 {
-            padding: 40px 20px;
-        }
-
-        #hero {
-            height: 70vh;
-            padding: 0 80px;
-            background-position: top 30% right 30%;
-        }
-
-        #product1 .pro-container {
-            justify-content: center;
-        }
-
-        #product1 .pro {
-            margin: 15px;
-        }
-
-        #newsletter .form {
-            width: 70%;
-        }
-
-        #form-details {
-            padding: 40px;
-        }
-
-            #form-details form {
-                width: 50%;
-                margin-right: 20px;
-            }
-
-        .fa-shopping-cart:before {
-            content: "\f07a";
-        }
+/* Media Query - Medium Screen*/
+@media (max-width: 799px) {
+    #navbar {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 50%; /* אפשר לשנות ל-100vw אם רוצים את כל המסך */
+        background-color: #e7e7e7;
+        box-shadow: 0 40px 60px rgba(0, 0, 0, 0.01);
+        padding: 80px 10px 0 10px;
+        transition: transform 0.3s ease-in-out; /* מעבר חלק */
+        transform: translateX(100%); /* התחלה מחוץ למסך */
+        z-index: 1000;
+    }
+    
+    #navbar.active {
+        transform: translateX(0); /* פתח את התפריט */
     }
 
-    /* Media Query - Small Screen*/
-    @media (max-width: 477px) {
-
-        #header {
-            padding: 10px 30px;
-        }
-
-        #hero {
-            height: 55vh;
-            padding: 0 20px;
-        }
-
-        h1 {
-            font-size: 38px;
-        }
-
-        h2 {
-            font-size: 32px;
-        }
-
-        h4 {
-            font-size: 28;
-        }
-
-        #product1 .pro {
-            width: 100%;
-        }
-
-        #newsletter {
-            padding: 40px 20px;
-        }
-
-            #newsletter .form {
-                width: 200%;
-            }
-
-        #contact-details {
-            flex-direction: column;
-        }
-
-            #contact-details .details {
-                width: 100%;
-                margin-bottom: 30px;
-            }
-
-            #contact-details .map {
-                width: 100%;
-            }
-
-        #form-details {
-            margin: 10px;
-            padding: 30px 10px;
-            flex-wrap: wrap;
-        }
-
-            #form-details form {
-                width: 100%;
-                margin-bottom: 30px;
-            }
+    #navbar li {
+        margin-bottom: 25px;
     }
+
+    #mobile {
+        display: flex;
+        align-items: center;
+    }
+
+
+    #mobile i {
+        font-size: 24px;
+        padding-left: 20px;
+    }
+
+    #close {
+        display: initial;
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        font-size: 24px;
+    }
+
+    #lg-bag {
+        display: none;
+    }
+
+    .section-p1 {
+        padding: 40px 20px;
+    }
+
+    #hero {
+        height: 70vh;
+        padding: 0 80px;
+        box-sizing: border-box;
+        background-position: top 30% right 30%;
+
+    }
+
+    #product1 .pro-container {
+        justify-content: center;
+    }
+
+    #product1 .pro {
+        margin: 15px;
+    }
+
+    #newsletter .form {
+        width: 70%;
+    }
+
+    #form-details {
+        padding: 40px;
+    }
+
+    #form-details form {
+        width: 50%;
+        margin-right: 20px;
+    }
+
+    .fa-shopping-cart:before {
+        content: "\f07a";
+    }
+    
+    .shopping-cart {
+        display: grid;
+        grid-template-columns: 1fr; /* One column layout */
+        justify-items: center; /* Center align */
+        gap: 15px;
+        padding: 10px;
+    }
+
+    .cart-item {
+        
+        width: 100%;
+        max-width: 350px;
+        margin: 10px auto;
+        border-radius: 20px;
+    }
+
+    .cart-item .details {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+ .title-price-x {
+        width: 100%; /* Full width */
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        gap: 10px; /* Reduced gap for better spacing */
+        align-items: flex-start; /* Align items to the start */
+    }
+
+    .title-price-x h3 {
+        font-size: 18px; /* Slightly smaller text */
+        padding: 5px 10px; /* Adjusted padding */
+        white-space: normal; /* Allow text wrapping */
+        text-align: left; /* Left-aligned text */
+        width: 100%; /* Full width */
+    }
+
+    .cart-item img {
+        width: 25%; /* Slightly larger image size */
+        margin-bottom: 10px; /* Added space below the image */
+    }
+
+    .cart-item {
+        flex-direction: row; /* Keep row layout for items */
+        align-items: center; /* Center align items */
+        justify-content: space-between; /* Space between items */
+        margin-bottom: 15px; /* Add margin between items */
+        border: 8px solid #f0f0f0;
+    }
+
+    .cart-item .fa {
+        font-size: 20px; /* Slightly smaller icon */
+    }
+
+    .cart-total {
+        font-size: 16px; /* Reduced font size for better readability */
+        padding: 10px; /* Adjusted padding */
+        text-align: center; /* Centered text */
+        width: 100%; /* Full width */
+    }
+    
+    #promo-code input {
+    height: 3.125rem;
+    padding: 0 1.25em;
+    font-size: 14px;
+    width: 50%;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    outline: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border: solid;
+    border-width: 0.2px;
+}
+    #login-screen {
+        height: 60vh; /* Adjust height for smaller screens */
+        padding: 20px; /* Add more padding for mobile */
+    }
+
+    .wrapper .input-box {
+        width: 90%; /* Make input fields larger on smaller screens */
+        height: 50px;
+        margin: 12px auto; /* Center inputs with auto margins */
+    }
+
+    .input-box input {
+        width: 90%; /* Input fields will take up 90% of the screen width */
+        height: 40px;
+        margin: 10px 0; /* Remove side margins */
+        padding: 15px; /* Reduced padding */
+        font-size: 16px; /* Slightly smaller font for mobile */
+    }
+    
+    .input-box input, .btn {
+        width: 90%; /* Inputs and button will take up 90% of the screen width */
+        height: 45px; /* Slightly increase button height for easier tapping */
+        margin: 10px 0; /* Remove side margins */
+        padding: 15px; /* Reduced padding */
+        font-size: 16px; /* Slightly smaller font for mobile */
+    }
+    
+    .reg {
+        padding-top: 20px; /* Reduce padding for smaller screens */
+    }
+
+    .wrapper .register-forgot {
+        width: 80%; /* Increase width to fill the screen on mobile */
+        justify-content: space-around; /* Adjust spacing between elements */
+        padding: 12px; /* Adjust padding for mobile */
+    }
+
+    .wrapper button {
+        width: 50%; /* Make button take up more space on mobile */
+        font-size: 16px; /* Reduce font size for smaller screens */
+        padding: 10px; /* Increase padding for better tap area */
+        margin: 10px 0; /* Adjust margin for better spacing */
+    }
+
+    .remember {
+        width: 80%; /* Make the remember section wider on mobile */
+        flex-direction: row; /* Align remember checkbox and label in a row */
+        justify-content: center; /* Center elements */
+        margin: 20px auto; /* Center the remember section */
+    }
+
+    .remember input {
+        margin-right: 5px; /* Reduce the margin between the checkbox and label */
+    }
+    
+    .admin {
+        flex-direction: column; /* Stack elements vertically for smaller screens */
+        align-items: center; /* Center the admin content */
+    }
+
+    #product1 .pro .admin-des {
+        padding: 8px 0; /* Adjust padding for smaller screens */
+    }
+
+    #product1 .pro .admin-des span {
+        font-size: 14px; /* Reduce font size on mobile */
+        padding: 8px 0; /* Adjust padding for smaller screens */
+    }
+
+    #product1 .pro .admin-des h5 {
+        font-size: 18px; /* Reduce font size on mobile */
+    }
+
+    #product1 .pro .admin-des h4 {
+        font-size: 16px; /* Reduce font size on mobile */
+    }
+
+    .admin #admin-icon {
+        font-size: 36px; /* Adjust icon size for mobile */
+    }
+    
+     #user-permissions-table {
+        width: 100%; /* Full width for mobile */
+        margin: 0 10px; /* Prevent touching edges */
+        overflow-x: auto; /* Allow horizontal scroll if necessary */
+        display: block; /* Makes the table responsive */
+    }
+
+    #user-permissions-table th,
+    #user-permissions-table td {
+        padding: 8px; /* Reduce padding for mobile */
+        word-wrap: break-word; /* Prevent overflow of text in cells */
+        font-size: 13px; /* Adjust font size for mobile */
+    }
+
+    #user-permissions-table th {
+        font-size: 14px; /* Adjust header font size */
+    }
+
+    /* Make columns scale proportionally */
+    #user-permissions-table th,
+    #user-permissions-table td {
+        min-width: 50px; /* Ensures the column doesn’t collapse */
+    }
+    
+    #newsletter {
+        padding: 30px 15px; /* Adjust padding for mobile screens */
+    }
+
+    #newsletter h4 {
+        font-size: 20px; /* Make the title smaller for mobile */
+    }
+
+    #newsletter p {
+        font-size: 12px; /* Reduce the size of the text for mobile */
+    }
+
+    #newsletter .form {
+        width: 100%; /* Make the form take full width */
+        flex-direction: column; /* Stack form fields vertically */
+        padding-right: 0; /* Remove excessive right padding */
+        margin-top: 15px; /* Adjust the margin */
+    }
+
+    #newsletter input {
+        width: 65%;
+        margin-bottom: 10px; /* Add some space between input and button */
+    }
+
+    #newsletter button {
+        width: 30%; /* Make the button take full width on mobile */
+        padding: 0.5rem; /* Adjust button size for better usability */
+    }
+    
+    #page-header-about {
+        padding: 120px 50px 120px 50px; /* Adjust padding for tablets */
+        background-position: top 30% center; /* Adjust focus area */
+    }
+}
+
+
+/* Media Query - Small Screen*/
+@media (max-width: 477px) {
+
+    #header {
+        padding: 10px 30px;
+    }
+
+    #hero {
+        height: 55vh;
+        padding: 0 20px;
+    }
+
+    h1 {
+        font-size: 38px;
+    }
+
+    h2 {
+        font-size: 32px;
+    }
+
+    h4 {
+        font-size: 28;
+    }
+
+    #product1 .pro {
+        width: 100%;
+    }
+
+    #newsletter {
+        padding: 40px 20px;
+    }
+
+    #newsletter .form {
+        width: 200%;
+    }
+
+    #contact-details {
+        flex-direction: column;
+    }
+
+    #contact-details .details {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    #contact-details .map {
+        width: 100%;
+    }
+
+    #form-details {
+        margin: 10px;
+        padding: 30px 10px;
+        flex-wrap: wrap;
+    }
+
+    #form-details form {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+}

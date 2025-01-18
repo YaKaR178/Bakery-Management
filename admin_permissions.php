@@ -1,3 +1,6 @@
+<!--Header-->
+<?php include_once 'Style/header.php'; ?>
+
 <?php
 /**
  * File Name: admin_permissions.php
@@ -58,99 +61,96 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 }
 ?>
 
-<!--Header-->
-<?php include "Style/header.php";?>
+<!-- Edit User Permissions--> 
+<section id="edit-permissions" class="edit-permissions">
 
-    <!-- Edit User Permissions--> 
-    <section id="edit-permissions" class="edit-permissions">
+    <h1 style="color: rgb(199, 74, 74);">User Permissions Management</h1>
 
-        <h1 style="color: rgb(199, 74, 74);">User Permissions Management</h1>
-
-        <!--User Management Table-->
-        <table id="user-permissions-table">
-            <thead>
-                <tr>
-                    <th>Email</th>
-                    <th>Status</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php if ($result->num_rows > 0): ?>
-                    <?php while ($row = $result->fetch_assoc()): ?>
-                        <tr>
-                            <td><?= htmlspecialchars($row['username']) ?></td>
-                            <td><?= $row['is_admin'] ? 'Admin' : 'Regular' ?></td>
-                            <td>
-                                <!--Admin permission-->
-                                <form method="POST" style="display:inline;" onsubmit="return confirmAction('toggle_admin', '<?= htmlspecialchars($row['username']) ?>')">
-                                    <input type="hidden" name="username" value="<?= htmlspecialchars($row['username']) ?>">
-                                    <input type="hidden" name="is_admin" value="<?= $row['is_admin'] ?>">
-                                    <input type="hidden" name="action" value="toggle_admin">
-                                    <button type="submit" class="toggle-btn" title="<?= $row['is_admin'] ? 'Remove Admin Permission' : 'Make Admin' ?>">
-                                        <i class="fas fa-user-shield"></i> 
-                                    </button>
-                                </form>
-
-                                <!--Delete User-->
-                                <form method="POST" style="display:inline;" onsubmit="return confirmAction('delete_user', '<?= htmlspecialchars($row['username']) ?>')">
-                                    <input type="hidden" name="username" value="<?= htmlspecialchars($row['username']) ?>">
-                                    <input type="hidden" name="action" value="delete_user">
-                                    <button type="submit" class="delete-btn" title="Delete User">
-                                        <i class="fas fa-trash"></i> 
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
-
-                    <?php endwhile; ?>
-                <?php else: ?>
+    <!--User Management Table-->
+    <table id="user-permissions-table">
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php if ($result->num_rows > 0): ?>
+                <?php while ($row = $result->fetch_assoc()): ?>
                     <tr>
-                        <td colspan="3">No users found</td>
+                        <td><?= htmlspecialchars($row['username']) ?></td>
+                        <td><?= $row['is_admin'] ? 'Admin' : 'Regular' ?></td>
+                        <td>
+                            <!--Admin permission-->
+                            <form method="POST" style="display:inline;" onsubmit="return confirmAction('toggle_admin', '<?= htmlspecialchars($row['username']) ?>')">
+                                <input type="hidden" name="username" value="<?= htmlspecialchars($row['username']) ?>">
+                                <input type="hidden" name="is_admin" value="<?= $row['is_admin'] ?>">
+                                <input type="hidden" name="action" value="toggle_admin">
+                                <button type="submit" class="toggle-btn" title="<?= $row['is_admin'] ? 'Remove Admin Permission' : 'Make Admin' ?>">
+                                    <i class="fas fa-user-shield"></i> 
+                                </button>
+                            </form>
+
+                            <!--Delete User-->
+                            <form method="POST" style="display:inline;" onsubmit="return confirmAction('delete_user', '<?= htmlspecialchars($row['username']) ?>')">
+                                <input type="hidden" name="username" value="<?= htmlspecialchars($row['username']) ?>">
+                                <input type="hidden" name="action" value="delete_user">
+                                <button type="submit" class="delete-btn" title="Delete User">
+                                    <i class="fas fa-trash"></i> 
+                                </button>
+                            </form>
+                        </td>
                     </tr>
-                <?php endif; ?>
-            </tbody>
-        </table>
-    
-         <!-- Pagination -->
-        <div class="pagination">
-            <?php if ($page > 1): ?>
-                <a href="?page=<?= $page - 1 ?>">Previous</a>
+
+                <?php endwhile; ?>
+            <?php else: ?>
+                <tr>
+                    <td colspan="3">No users found</td>
+                </tr>
             <?php endif; ?>
-            <?php for ($i = 1; $i <= $totalPages; $i++): ?>
-                <a href="?page=<?= $i ?>" <?= $i == $page ? 'style="background-color: #ddd;"' : '' ?>><?= $i ?></a>
-            <?php endfor; ?>
-            <?php if ($page < $totalPages): ?>
-                <a href="?page=<?= $page + 1 ?>">Next</a>
-            <?php endif; ?>
-        </div>
-        
-        
-        
-        </section>
+        </tbody>
+    </table>
+
+        <!-- Pagination -->
+    <div class="pagination">
+        <?php if ($page > 1): ?>
+            <a href="?page=<?= $page - 1 ?>">Previous</a>
+        <?php endif; ?>
+        <?php for ($i = 1; $i <= $totalPages; $i++): ?>
+            <a href="?page=<?= $i ?>" <?= $i == $page ? 'style="background-color: #ddd;"' : '' ?>><?= $i ?></a>
+        <?php endfor; ?>
+        <?php if ($page < $totalPages): ?>
+            <a href="?page=<?= $page + 1 ?>">Next</a>
+        <?php endif; ?>
+    </div>
     
+    
+    
+    </section>
 
 
- <?php include "Style/footer.php";?>
 
-    <?php
-    // message to admin after success/failure of process
-    if (isset($message)) {
-        echo "<script>alert('$message');</script>";
-    }
-    ?>
+<?php include "Style/footer.php";?>
 
-    <script>
+<?php
+// message to admin after success/failure of process
+if (isset($message)) {
+    echo "<script>alert('$message');</script>";
+}
+?>
 
-        // function for action button (delete/give permission)
-        function confirmAction(actionType, username) {
-            let message = '';
-            if (actionType === 'delete_user') {
-                message = `Are you sure you want to delete the user "${username}"? This action cannot be undone.`;
-            } else if (actionType === 'toggle_admin') {
-                message = `Are you sure you want to change admin permissions for the user "${username}"?`;
-            }
-            return confirm(message); 
+<script>
+
+    // function for action button (delete/give permission)
+    function confirmAction(actionType, username) {
+        let message = '';
+        if (actionType === 'delete_user') {
+            message = `Are you sure you want to delete the user "${username}"? This action cannot be undone.`;
+        } else if (actionType === 'toggle_admin') {
+            message = `Are you sure you want to change admin permissions for the user "${username}"?`;
         }
-    </script>
+        return confirm(message); 
+    }
+</script>
 

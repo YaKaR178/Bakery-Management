@@ -18,8 +18,7 @@
  * 
  */
 
- // access to user session
-session_start();
+
 
 // require the configure the connection to db
 require_once 'db_con.php';
@@ -65,7 +64,7 @@ if (!isset($_SESSION['basket'])) {
 
 <!--Feature-->
 <section id="product1" class="section-p1">
-    <h2>Featured Items</h2>
+    <!--<h2>Featured Items</h2>-->
     <p>Explore our collection</p>
     <div class="pro-container" id="pro">
 

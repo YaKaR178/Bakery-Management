@@ -1,3 +1,6 @@
+<!--Header-->
+<?php include_once 'Style/header.php'; ?>
+
 <?php
 /**
  * File Name: cart.php
@@ -16,9 +19,6 @@
  * 
  */
 ?>
-
-
-<?php include 'Style/header.php';?>
 
     <!--Hero-->
     <section id="page-header">

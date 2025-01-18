@@ -42,14 +42,14 @@ try {
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
-    $mail->Username = 'eliyakar178@gmail.com'; 
-    $mail->Password = 'bzsm meca lxga uvbg';
+    $mail->Username = 'bakery.fth@gmail.com'; 
+    $mail->Password = 'oqil yqfl vfng fqci';
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Port = 587;
 
     // define sender and recipient  
     $mail->setFrom($userEmail);
-    $mail->addAddress('eliyakar178@gmail.com');    
+    $mail->addAddress('bakery.sigal@gmail.com');    
 
     // mail content
     $mail->CharSet = 'UTF-8';

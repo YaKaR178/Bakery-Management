@@ -1,3 +1,6 @@
+<!--Header-->
+<?php include_once 'Style/header.php';?>
+
 <?php
 /**
  * File Name: contact.php
@@ -25,9 +28,6 @@
  */
 
 ?>
-<!--Header-->
-<?php include_once 'Style/header.php'; ?>
-
     <!--Hero-->
     <section id="page-header">
         <h1>Let's Talk!</h1>
@@ -44,17 +44,17 @@
             <div>
                 <li>
                     <i class='far fa-map'></i>
-                    <p>69 Bakery Rd., Qiryat Ono</p>
+                    <p>13 Arlozerov Rd., Yehud-Monosson</p>
                 </li>
 
                 <li>
                     <i class='far fa-envelope'></i>
-                    <p>bfth_bakery@gmail.com</p>
+                    <p>bakery.fth@gmail.com</p>
                 </li>
 
                 <li>
                     <i class='fas fa-phone'></i>
-                    <p>054-836-3238</p>
+                    <p>052-538-1648</p>
                 </li>
 
                 <li>
@@ -65,10 +65,10 @@
         </div>
 
         <div class="map">
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d733.3008501249902!2d34.86454006410179!3d32.05395576414481!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sil!4v1732555620469!5m2!1sen!2sil"
-                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2695.2232818878006!2d34.88807497461961!3d32.0356680739823!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151d3509f2a4d351%3A0x19ecec0152b84751!2sArlozorov%20St%2013%2C%20Yahud%20Monoson!5e1!3m2!1sen!2sil!4v1737208002051!5m2!1sen!2sil" 
+            width="600" height="450" style="border:0;" 
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
         </div>
     </section>
 

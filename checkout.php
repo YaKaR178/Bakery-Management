@@ -1,3 +1,6 @@
+<!--Header-->
+<?php include_once 'Style/header.php'; ?>
+
 <?php
 /**
  * File Name: checkout.php
@@ -95,10 +98,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 ?>
-
-
-<!--Header-->
-<?php include "Style/header.php"; ?>
 
 <!--Hero-->
 <section id="page-header" class="checkout-header">

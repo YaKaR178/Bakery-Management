@@ -1,5 +1,10 @@
+<!--Header-->
+<?php include_once 'Style/header.php';
 
-<?php include_once 'Style/header.php';?>
+//session error messege if the user set a wrong input
+$error_message = isset($_SESSION['error_message']) ? $_SESSION['error_message'] : '';
+// Clear the error message after displaying it
+unset($_SESSION['error_message']);?>
 
     <!--Login-->
     <section id="login-screen" class="login">
@@ -21,6 +26,11 @@
                 <div class="remember">
                     <label><input type="checkbox">Remember Me</label>
                 </div>
+
+                <!-- Error Message -->
+                <?php if (!empty($error_message)): ?>
+                    <p style="color: red; text-align: center;"><?= htmlspecialchars($error_message) ?></p>
+                <?php endif; ?>
 
                 <div class="input-box">
                     <button type="submit" class="btn">Login</button>

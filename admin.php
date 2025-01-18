@@ -1,3 +1,5 @@
+<!--Header-->
+<?php include_once 'Style/header.php'; ?>
 
 <?php
 /**
@@ -17,10 +19,6 @@
  * 
  */
 ?>
-
-
-<!--Header-->
-<?php include 'Style/header.php'; ?>
 
     <!--Feature-->
     <section id="product1" class="section-p1">

@@ -1,3 +1,6 @@
+<!--Header-->
+<?php include_once 'Style/header.php'; ?>
+
 <?php
 /**
  * File Name: about.php
@@ -6,10 +9,8 @@
  * Last Modified: 2025-01-05
  * Description: About page to describe the operations of the business
  */
-
 ?>
-<!--Header-->
-<?php include_once 'Style/header.php'; ?>
+
 
     <!--Hero-->
     <section id="page-header-about">

@@ -56,7 +56,7 @@ $conn->close();
 
 <!--Hero-->
 <section id="page-header" class="checkout-header">
-    <h1>Payment Success! thank you for purchasing at 'From The Heart' bakery</h1>
+    <h1>Payment Success! thank you for purchasing at 'From The Heart' bakery. Your order ID is: <?php echo htmlspecialchars($order_id, ENT_QUOTES, 'UTF-8'); ?></h1>
 </section>
 
 <?php include 'Style/footer.php';?>
